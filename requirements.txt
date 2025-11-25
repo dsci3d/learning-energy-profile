@@ -1,0 +1,15 @@
+# Learning Energy Profile - Python Dependencies
+# Version 0.2.1
+
+# Core functionality (auswertung.py)
+# - Standard library only, no external dependencies
+
+# Visualization (auswertung_visualize.py)
+matplotlib>=3.5.0
+numpy>=1.21.0
+
+# Testing (auswertung_test.py, auswertung_validation.py)
+# - Standard library only (unittest)
+
+# Optional: For development
+# pytest>=7.0.0  # Alternative test runner
