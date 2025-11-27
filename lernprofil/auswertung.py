@@ -29,7 +29,7 @@ Mit Text-Report:
 
 Vollständige Ausgabe in Dateien:
 ---------------------------------
-    python auswertung.py deine_antworten.csv \\
+    python lernprofil/auswertung.py deine_antworten.csv \\
         --output profil.json \\
         --report bericht.txt
 
@@ -144,6 +144,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Any, Optional
+from datetime import datetime
 
 VERSION = "0.2.1"
 
@@ -773,6 +774,24 @@ def main(argv: Optional[List[str]] = None) -> None:
     try:
         ratings = load_ratings_from_csv(input_path)
         profile = compute_profile(ratings, profile_id=profile_id)
+
+        # Ausgabeordner erzeugen: Auswertung/YYYY-MM-DD_HH-MM-SS/
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        output_dir = Path("Auswertung") / timestamp
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        # Wenn --output gesetzt wurde → Dateiname übernehmen, aber im neuen Ordner speichern
+        if args.output:
+            json_output_path = output_dir / args.output.name
+        else:
+            json_output_path = output_dir / "profil.json"
+
+        # Wenn --report gesetzt wurde → Dateiname übernehmen, aber im neuen Ordner speichern
+        if args.report:
+            report_output_path = output_dir / args.report.name
+        else:
+            report_output_path = output_dir / "bericht.txt"
+        
     except (ValueError, TypeError) as exc:
         print(f"❌ Fehler bei der Auswertung: {exc}", file=sys.stderr)
         raise SystemExit(1)
@@ -783,9 +802,9 @@ def main(argv: Optional[List[str]] = None) -> None:
     # JSON-Ausgabe
     json_str = json.dumps(profile, ensure_ascii=False, indent=2)
     if args.output:
-        args.output.write_text(json_str, encoding="utf-8")
+        json_output_path.write_text(json_str, encoding="utf-8")
         if not args.quiet:
-            print(f"✓ JSON-Profil gespeichert: {args.output}")
+            print(f"✓ JSON-Profil gespeichert: {json_output_path}")
     elif not args.quiet:
         print(json_str)
     
@@ -793,9 +812,9 @@ def main(argv: Optional[List[str]] = None) -> None:
     if args.report or not args.output:
         report_text = generate_text_report(profile)
         if args.report:
-            args.report.write_text(report_text, encoding="utf-8")
+            report_output_path.write_text(report_text, encoding="utf-8")
             if not args.quiet:
-                print(f"✓ Text-Report gespeichert: {args.report}")
+                print(f"✓ Text-Report gespeichert: {report_output_path}")
         elif not args.quiet and not args.output:
             print("\n" + report_text)
 
