@@ -1,0 +1,39 @@
+{
+  "session_id": "20251127_215112",
+  "timestamp": "2025-11-27T21:51:27.418490",
+  "config": {
+    "csv_path": "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/examples/questionnaire_answered_example1.csv",
+    "profile_id": "questionnaire_answered_example1"
+  },
+  "outputs": {
+    "profil_json": "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/auswertung/2025-11-27_21-51-26/profil.json",
+    "report_txt": "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/auswertung/2025-11-27_21-51-26/bericht.txt",
+    "charts_dir": "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/charts/2025-11-27_21-51-26"
+  },
+  "stages": [
+    {
+      "name": "Profil-Berechnung",
+      "success": true,
+      "duration_seconds": 0.070029,
+      "output_dir": "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/auswertung/2025-11-27_21-51-26",
+      "output_files": [
+        "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/auswertung/2025-11-27_21-51-26/profil.json",
+        "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/auswertung/2025-11-27_21-51-26/bericht.txt"
+      ],
+      "error_message": null
+    },
+    {
+      "name": "Visualisierung",
+      "success": true,
+      "duration_seconds": 0.988877,
+      "output_dir": "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/charts/2025-11-27_21-51-26",
+      "output_files": [
+        "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/charts/2025-11-27_21-51-26/radar_chart.png",
+        "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/charts/2025-11-27_21-51-26/chronotype.png",
+        "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/charts/2025-11-27_21-51-26/dimension_bars.png",
+        "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/charts/2025-11-27_21-51-26/report.html"
+      ],
+      "error_message": null
+    }
+  ]
+}

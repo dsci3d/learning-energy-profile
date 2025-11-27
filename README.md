@@ -85,6 +85,8 @@ learning-energy-profile/
     ├── auswertung_visualize.py                # Radar charts, bar charts, HTML report
     ├── auswertung_test.py                     # 21 unit tests (scoring logic)
     ├── auswertung_validation.py               # Integration validation
+└── lernprofil_sessions/                       # Session-Index: verknüpft Outputs verschiedener Module
+    └── session_JJJJMMTT_HHMMSS.json           # JSON mit Pfaden zu profil.json, bericht.txt, charts/
 └── systemprompt/                              # Systemprompts for AI
     ├── systemprompt_0.21.md                   # Systemprompt version 0.21
 ```
