@@ -1,13 +1,47 @@
 #!/usr/bin/env python3
 """
-Visualisierungs-Tool für Lernenergie-Profile (Version 0.2.1).
+Visualisierungstool für Lernenergie-Profile (Version 0.2.1)
 
-Erzeugt professionelle Diagramme:
-- Radar-Chart für die 6 Hauptdimensionen
-- Balkendiagramme für Detailansichten
-- HTML-Report mit allen Visualisierungen
+Dieses Script erzeugt Diagramme und einen HTML-Report aus einer zuvor
+berechneten Profil-JSON-Datei (auswertung.py). Damit können Ergebnisse
+des Lernenergie-Instruments anschaulich dargestellt werden.
 
-Benötigt: matplotlib, numpy
+Dieses Tool ist besonders hilfreich für:
+- Lerncoaches
+- Studierende
+- Projektteams
+- Dokumentation / Präsentationen
+
+FUNKTIONEN
+==========
+
+Erzeugt automatisch:
+1. Radar-Chart (Übersicht der 6 Hauptdimensionen)
+2. Balkendiagramm der Dimensionen (mit farblicher Niveau-Kodierung)
+3. Chronotyp-Visualisierung
+4. Kompakten HTML-Report mit allen Grafiken und wichtigsten Werten
+
+EINGABEN
+========
+- Eine Profil-JSON-Datei (z.B. Auswertung/2024-11-21_12-30-01/profil.json)
+
+AUSGABEN
+========
+- PNG-Grafiken und ein HTML-Report, gesammelt in einem automatisch
+  angelegten Output-Ordner (Standard: ./charts).
+
+TECHNISCHE HINWEISE
+===================
+- Abhängigkeiten: matplotlib, numpy
+- Verwendet ein nicht-interaktives Backend (Agg), um Grafiken ohne GUI zu erzeugen.
+- Das Script prüft robust, ob matplotlib verfügbar ist.
+
+AUFRUF
+======
+    python lernprofil/auswertung_visualize.py profil.json --output charts
+
+Wenn kein --output angegeben wird, wird automatisch der Ordner "charts" erzeugt.
+
 """
 
 from __future__ import annotations
@@ -17,6 +51,7 @@ import json
 from pathlib import Path
 from typing import Dict, Any, List
 import sys
+from datetime import datetime
 
 try:
     import matplotlib
@@ -452,9 +487,11 @@ def visualize_profile(profile_path: Path, output_dir: Path) -> None:
     with profile_path.open('r', encoding='utf-8') as f:
         profile = json.load(f)
     
-    # Output-Verzeichnis erstellen
+    # Erzeuge charts/YYYY-MM-DD_HH-MM-SS/
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    output_dir = output_dir / timestamp
     output_dir.mkdir(parents=True, exist_ok=True)
-    
+        
     print(f"Erstelle Visualisierungen für Profil: {profile['id']}")
     
     # Visualisierungen erstellen
@@ -495,8 +532,8 @@ def main():
         "--output",
         "-o",
         type=Path,
-        default=Path("visualizations"),
-        help="Output-Verzeichnis für Visualisierungen (Standard: ./visualizations)",
+        default=Path("charts"),
+        help="Output-Verzeichnis für Visualisierungen (Standard: ./charts)",
     )
     
     args = parser.parse_args()

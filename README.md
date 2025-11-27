@@ -67,6 +67,14 @@ learning-energy-profile/
 ├── LICENSE                                    # CC BY-NC-SA 4.0
 ├── README.md                                  # This file
 ├── requirements.txt                           # Python dependencies
+└── auswertung/..                              # Analysis report
+    ├── bericht.txt                            # Questionnaire: (example) report
+    ├── profil.json                            # Questionnaire: (example) aggregated data
+└── charts/..                                  # Automatically generated output directory
+    ├── chronotype.png                         # Visualizes morning/evening tendencies
+    ├── dimension_bars.png                     # Horizontal bar chart of all dimensions
+    ├── radar_chart.png                        # Radar chart of the overall profile
+    └── report.html                            # Compact HTML report including all charts
 └── examples/                                  # Example data
     ├── questionnaire_template.csv             # Blank questionnaire template
     ├── questionnaire_answered_example2.csv    # Example: High social energy profile
@@ -77,6 +85,8 @@ learning-energy-profile/
     ├── auswertung_visualize.py                # Radar charts, bar charts, HTML report
     ├── auswertung_test.py                     # 21 unit tests (scoring logic)
     ├── auswertung_validation.py               # Integration validation
+└── systemprompt/                              # Systemprompts for AI
+    ├── systemprompt_0.21.md                   # Systemprompt version 0.21
 ```
 
 ---
