@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Finale Validierung - Version 0.2.1 Clean Release
-Prüft alle kritischen Punkte aus beiden GPT-Reviews
+Prüft alle kritischen Punkte aus beiden Reviews
 """
 
 import sys
@@ -20,7 +20,7 @@ print("=" * 80)
 print()
 
 # === GPT REVIEW 1: KRITISCHE PUNKTE ===
-print("1. GPT REVIEW 1 - KRITISCHE PUNKTE")
+print("1. REVIEW 1 - KRITISCHE PUNKTE")
 print("-" * 80)
 
 # 1.1 Versionsnummern
@@ -64,7 +64,7 @@ print("✅ Test-Suite: 21 Tests (siehe test_scoring_v02.py)")
 print()
 
 # === GPT REVIEW 2: KRITISCHE PUNKTE ===
-print("2. GPT REVIEW 2 - KRITISCHE PUNKTE")
+print("2. REVIEW 2 - KRITISCHE PUNKTE")
 print("-" * 80)
 
 # 2.1 HTML ohne matplotlib
