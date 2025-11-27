@@ -13,6 +13,126 @@ Neu in Version 0.2.1:
 - Strengere Type- und Range-Validierung
 - Verbesserte Fehlerdiagnostik
 - Robustere Chronotyp-Berechnung
+
+AUFRUF UND VERWENDUNG
+=====================
+
+Grundlegender Aufruf:
+---------------------
+    python auswertung.py deine_antworten.csv
+    Gibt das JSON-Profil auf dem Bildschirm aus.
+
+Mit Text-Report:
+----------------
+    python auswertung.py deine_antworten.csv --report bericht.txt
+    Erstellt zusätzlich einen lesbaren Text-Bericht mit ASCII-Visualisierungen.
+
+Vollständige Ausgabe in Dateien:
+---------------------------------
+    python auswertung.py deine_antworten.csv \\
+        --output profil.json \\
+        --report bericht.txt
+
+    Speichert JSON-Profil und Text-Report in separate Dateien.
+
+Mit eigener Profil-ID:
+----------------------
+    python auswertung.py deine_antworten.csv \\
+        --id "Peter_2024_11" \\
+        --output profil.json \\
+        --report bericht.txt
+
+    Sinnvoll, wenn du mehrere Profile verwaltest.
+
+Stille Ausführung (nur Dateien, keine Bildschirmausgabe):
+----------------------------------------------------------
+    python auswertung.py deine_antworten.csv \\
+        --output profil.json \\
+        --report bericht.txt \\
+        --quiet
+
+EINGABEFORMAT
+=============
+
+Die CSV-Datei muss mindestens diese Spalten enthalten:
+    - item_code: Der Code des Items (z.B. "A1", "S3", "M10")
+    - rating: Die Bewertung auf der Likert-Skala (1-5)
+
+Zusätzliche Spalten (z.B. item_text, dimension) werden ignoriert.
+
+Beispiel einer gültigen CSV:
+    item_code,rating
+    A1,4
+    A2,3
+    A3,5
+    ...
+    R12,4
+
+Es müssen alle 88 Items des Fragebogens vorhanden sein.
+
+OPTIONEN
+========
+
+Positional:
+    input_csv           Pfad zur CSV-Datei mit deinen Antworten
+
+Optional:
+    --id PROFILE_ID     Eigene ID für das Profil (Standard: Dateiname)
+    --output, -o FILE   Speichert JSON-Profil in Datei
+    --report, -r FILE   Speichert Text-Report in Datei
+    --quiet, -q         Keine Ausgabe auf Bildschirm
+
+Hilfe:
+    --help, -h          Zeigt diese Hilfe an
+
+AUSGABE
+=======
+
+JSON-Profil enthält:
+    - 6 Hauptdimensionen mit Scores (0-100)
+    - Zusatzindizes (Chronotyp, Vermeidungsorientierung)
+    - Qualitätsindikatoren für die Antworten
+    - Metadaten zum Instrument
+
+Text-Report enthält:
+    - ASCII-Balkendiagramme für alle Dimensionen
+    - Interpretationshilfen
+    - Vorschläge für nächste Schritte
+
+BEISPIEL-WORKFLOW
+=================
+
+1. Fragebogen ausfüllen und als CSV exportieren
+2. Auswertung durchführen:
+   
+   python auswertung.py meine_antworten.csv --report mein_profil.txt
+
+3. Text-Report ansehen und mit KI analysieren lassen
+4. Konkrete Lernstrategien entwickeln
+
+FEHLERBEHANDLUNG
+=================
+
+Das Skript prüft:
+    ✓ Alle 88 Items vorhanden
+    ✓ Werte im gültigen Bereich (1-5)
+    ✓ Keine doppelten Items
+    ✓ Korrekte Datentypen
+    ✓ Antwortqualität (Careless Responding)
+
+Bei Fehlern gibt es klare Fehlermeldungen mit Zeilennummern.
+
+TECHNISCHE DETAILS
+==================
+
+- Erwartet Python 3.7+
+- Keine externen Dependencies erforderlich
+- Verwendet nur Python-Standardbibliothek
+- Alle Berechnungen sind deterministisch und transparent
+- Reverse-Scoring für 27 Items automatisch
+
+Version: 0.2.1
+Instrument: 88 Items, 6 Hauptdimensionen, 2 Zusatzindizes
 """
 
 from __future__ import annotations
