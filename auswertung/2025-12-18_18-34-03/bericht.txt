@@ -1,0 +1,60 @@
+================================================================================
+LERNENERGIE-PROFIL (Version 0.2.1)
+Profil-ID: questionnaire_answered_example1
+================================================================================
+
+ANTWORTQUALITÄT
+--------------------------------------------------------------------------------
+Anzahl verschiedener Antworten: 5
+Antwortvariation: 1.34
+Durchschnittliche Antwort: 4.05
+Qualitätsflag: ok
+
+HAUPTDIMENSIONEN (0-100 Skala)
+--------------------------------------------------------------------------------
+Aufmerksamkeitsarchitektur               │ █████████████████████████████████  67.5 (mittel)
+                                         │ Items: 10 (davon 3 reverse)
+
+Sensorische Verarbeitung                 │ ██████████████████████████████████████████████  92.3 (hoch)
+                                         │ Items: 13 (davon 3 reverse)
+
+Soziale Energetik                        │ █████████████  26.9 (niedrig)
+                                         │ Items: 13 (davon 6 reverse)
+
+Exekutive Funktionen & Strukturbedürfnis │ ██████████████████████████████████  68.8 (mittel)
+                                         │ Items: 16 (davon 6 reverse)
+
+Motivationsarchitektur                   │ ██████████████████████████████████████  76.6 (hoch)
+                                         │ Items: 16 (davon 4 reverse)
+
+Autonome Regulation / Stress & Vigilanz  │ ██████████████████████████████  60.4 (mittel)
+                                         │ Items: 12 (davon 5 reverse)
+
+ZUSATZINDIZES
+--------------------------------------------------------------------------------
+Vermeidungsorientierung (Motivation): 50.0 (mittel)
+
+Chronotyp-Profil:
+  Morgentendenz: 93.8
+  Abendtendenz: 25.0
+  Balance-Score: -2.75
+  Interpretation: Deutlicher Morgentyp
+
+================================================================================
+NÄCHSTE SCHRITTE
+--------------------------------------------------------------------------------
+1. Dieses Profil mit einer KI analysieren lassen (datenschutzkonform)
+2. Konkrete Lernstrategien auf Basis des Profils entwickeln
+3. Profil bei Bedarf mit Lehrenden oder Lerncoaches besprechen
+================================================================================
+
+INSTRUMENT-METADATEN
+--------------------------------------------------------------------------------
+Instrument-Items: 88
+Beantwortete Items: 88
+Hauptskalen-Items: 80
+Reverse-Items (Hauptskalen): 27
+Zusatzindex-Items: 8
+Likert-Skala: 1-5
+Score-Bereich: 0-100
+================================================================================

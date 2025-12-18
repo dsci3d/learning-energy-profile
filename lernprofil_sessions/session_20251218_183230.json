@@ -1,0 +1,23 @@
+{
+  "session_id": "20251218_183230",
+  "timestamp": "2025-12-18T18:32:30.796984",
+  "config": {
+    "csv_path": "/Users/pk/Documents/A3/0GitHub/learning-energy-profile/examples/questionnaire_template.csv",
+    "profile_id": "questionnaire_template"
+  },
+  "outputs": {
+    "profil_json": null,
+    "report_txt": null,
+    "charts_dir": null
+  },
+  "stages": [
+    {
+      "name": "Profil-Berechnung",
+      "success": false,
+      "duration_seconds": 0.521182,
+      "output_dir": null,
+      "output_files": [],
+      "error_message": "❌ Fehler bei der Auswertung: CSV muss mindestens die Spalten {'rating', 'item_code'} besitzen, gefunden: ['item_code', 'dimension', 'facet', 'include_in_main_scale', 'reverse_scored', 'item_text', 'scale_1_5']"
+    }
+  ]
+}
